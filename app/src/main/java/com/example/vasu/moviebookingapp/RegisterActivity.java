@@ -21,7 +21,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText etName , etEmail , etPassword ;
     Button submit ;
-    Button newUser ;
 
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor ;
@@ -36,13 +35,11 @@ public class RegisterActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("MyData" , MODE_PRIVATE) ;
         editor = sharedPreferences.edit();
 
-        etName = (EditText) findViewById(R.id.login_form_name);
-        etEmail = (EditText) findViewById(R.id.login_form_email);
-        etPassword = (EditText) findViewById(R.id.login_form_password);
+        etName = (EditText) findViewById(R.id.register_form_name);
+        etEmail = (EditText) findViewById(R.id.register_form_email);
+        etPassword = (EditText) findViewById(R.id.register_form_password);
 
-        newUser = findViewById(R.id.login_new_user_btn);
-
-        submit = (Button) findViewById(R.id.login_form_submit_btn);
+        submit = (Button) findViewById(R.id.register_form_submit_btn);
 
         etEmail.setText("@gmail.com");
         etPassword.setText("");
@@ -51,13 +48,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 registerUser() ;
-            }
-        });
-
-        newUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
             }
         });
 
@@ -77,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UsersResponse> call, Throwable t) {
-
+                Toast.makeText(RegisterActivity.this, ""+t, Toast.LENGTH_SHORT).show();
             }
         });
 

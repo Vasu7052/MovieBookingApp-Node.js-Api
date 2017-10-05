@@ -32,7 +32,7 @@ public interface ApiInterface {
     Call<UsersResponse> getAllUsersByEmailPass(@Path("email") String email , @Path("password") String password) ;
 
     @FormUrlEncoded
-    @POST("api/genres/add/")
+    @POST("api/users/add/")
     Call<UsersResponse> addUsersData(
             @Field("name") String name ,
             @Field("email") String email ,

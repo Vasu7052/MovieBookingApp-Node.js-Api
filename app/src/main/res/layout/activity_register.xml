@@ -34,7 +34,7 @@
                     android:layout_marginTop="15dp">
 
                     <android.support.design.widget.TextInputEditText
-                        android:id="@+id/login_form_name"
+                        android:id="@+id/register_form_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_email_green_24dp"

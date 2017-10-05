@@ -12,13 +12,13 @@ public class Users {
     private String _id;
 
     @SerializedName("name")
-    private String email ;
+    private String name ;
 
     @SerializedName("email")
-    private String password ;
+    private String email ;
 
     @SerializedName("password")
-    private String name ;
+    private String password ;
 
     @SerializedName("create_date")
     private String create_date ;
