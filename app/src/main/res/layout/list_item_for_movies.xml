@@ -70,29 +70,34 @@
                 android:padding="5sp"
                 tools:text="This is the title " />
 
-            <TextView
-                android:id="@+id/director"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:padding="5sp"
-                tools:text="This is the title " />
-
-            <TextView
-                android:id="@+id/stars"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5sp"
-                android:padding="5sp"
-                tools:text="This is the title " />
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:orientation="vertical"
+        android:padding="5dp">
 
+        <TextView
+            android:id="@+id/director"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_weight="1"
+            android:padding="2dp"
+            tools:text="This is the title " />
+
+        <TextView
+            android:id="@+id/stars"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:layout_weight="1"
+            android:padding="2dp"
+            tools:text="This is the title " />
     </LinearLayout>
 
 </LinearLayout>

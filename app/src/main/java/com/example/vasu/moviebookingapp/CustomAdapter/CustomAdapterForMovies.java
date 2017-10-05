@@ -2,6 +2,7 @@ package com.example.vasu.moviebookingapp.CustomAdapter;
 
 import android.content.Context;
 import android.media.Image;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.example.vasu.moviebookingapp.Model.Movies;
 import com.example.vasu.moviebookingapp.R;
 
@@ -45,7 +48,6 @@ public class CustomAdapterForMovies extends ArrayAdapter<Movies> implements View
         public TextView description ;
         public TextView director ;
         public TextView stars ;
-        public TextView imdbRating ;
     }
 
     @Override
@@ -79,12 +81,15 @@ public class CustomAdapterForMovies extends ArrayAdapter<Movies> implements View
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.name.setText(users.getName());
-        holder.yearAndGenre.setText(users.getYear() + " " + users.getGenre());
+        holder.name.setText(users.getTitle());
+        holder.yearAndGenre.setText(users.getYear() + " \n" + users.getGenre());
         holder.description.setText(users.getDescription());
-        holder.director.setText(users.getDirector());
-        holder.stars.setText(users.getStars());
-        holder.rating.setRating(users.getImdbRating());
+        holder.rating.setRating((users.getImdbRating()/(float)2));
+
+        holder.director.setText(Html.fromHtml("<b>Director : </b> " + users.getDirector()));
+        holder.stars.setText(Html.fromHtml("<b>Stars : </b> " + users.getStars()));
+
+        Glide.with(getContext()).load(users.getImage()).into(holder.image) ;
 
         return convertView;
 
