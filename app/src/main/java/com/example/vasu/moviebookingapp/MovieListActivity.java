@@ -1,6 +1,7 @@
 package com.example.vasu.moviebookingapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,9 @@ import retrofit2.Response;
 
 public class MovieListActivity extends AppCompatActivity {
 
+    SharedPreferences sharedPreferences ;
+    SharedPreferences.Editor editor ;
+
     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
     ArrayList<Movies> movieList = new ArrayList<>() ;
@@ -32,6 +36,9 @@ public class MovieListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_list);
+
+        sharedPreferences = getSharedPreferences("MyData" , MODE_PRIVATE) ;
+        editor = sharedPreferences.edit();
 
         lv = (ListView) findViewById(R.id.listView) ;
 
@@ -75,6 +82,8 @@ public class MovieListActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
+            editor.putString("LoginStatus" , "no") ;
+            editor.commit();
             startActivity(new Intent(MovieListActivity.this , MainActivity.class));
             finish();
             return true;
