@@ -34,7 +34,10 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("api/genres/add/")
     Call<UsersResponse> addUsersData(
-            @Field("name") String name
+            @Field("name") String name ,
+            @Field("email") String email ,
+            @Field("password") String password ,
+            @Field("type") String type
     ) ;
 
     @FormUrlEncoded

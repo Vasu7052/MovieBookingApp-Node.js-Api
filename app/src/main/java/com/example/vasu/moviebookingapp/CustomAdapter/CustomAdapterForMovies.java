@@ -82,7 +82,7 @@ public class CustomAdapterForMovies extends ArrayAdapter<Movies> implements View
         }
 
         holder.name.setText(users.getTitle());
-        holder.yearAndGenre.setText(users.getYear() + " \n" + users.getGenre());
+        holder.yearAndGenre.setText(users.getYear() + "\n" + users.getGenre().trim());
         holder.description.setText(users.getDescription());
         holder.rating.setRating((users.getImdbRating()/(float)2));
 
