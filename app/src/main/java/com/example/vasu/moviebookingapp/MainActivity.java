@@ -103,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UsersResponse> call, Response<UsersResponse> response) {
                 if (response.isSuccessful()){
-
                     userList = response.body().getResults();
                     editor.putString("Name" , userList.get(0).getName()) ;
                     editor.putString("Email" , userList.get(0).getEmail()) ;
@@ -111,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     editor.putString("Type" , userList.get(0).getType()) ;
                     editor.putString("LoginStatus" , "yes") ;
                     editor.commit();
+                    Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this , MovieListActivity.class));
                     finish();
                 }

@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="120sp"
+        android:layout_height="120sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/imageView2"
+        android:layout_gravity="right"
+        android:layout_margin="10dp"
+        android:src="@drawable/profile_placeholder"
+        app:civ_border_color="#ffffff"
+        app:civ_border_width="2dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,8 +36,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
                     android:fontFamily="sans-serif-light"
-                    android:gravity="center_horizontal"
+                    android:gravity="left"
+                    android:paddingLeft="10dp"
                     android:text="Register"
                     android:textColor="@color/colorPrimaryText"
                     android:textSize="30sp" />
@@ -31,7 +47,7 @@
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp">
+                    android:layout_marginTop="25dp">
 
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/register_form_name"
@@ -179,7 +195,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#DD689F38"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:layout_width="match_parent"
@@ -189,7 +208,7 @@
             android:fontFamily="sans-serif-light"
             android:gravity="center_horizontal"
             android:paddingBottom="20dp"
-            android:paddingLeft="40dp"
+            android:paddingLeft="75dp"
             android:paddingRight="40dp"
             android:paddingTop="20dp"
             android:text="Connecting..."
