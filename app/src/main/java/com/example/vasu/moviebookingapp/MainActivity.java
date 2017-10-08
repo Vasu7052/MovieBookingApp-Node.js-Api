@@ -10,9 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.vasu.moviebookingapp.Model.Users;
 import com.example.vasu.moviebookingapp.Model.UsersResponse;
 import com.example.vasu.moviebookingapp.helper.ApiClient;
 import com.example.vasu.moviebookingapp.helper.ApiInterface;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor editor ;
 
     ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+
+    ArrayList<Users> userList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,10 +81,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<UsersResponse> call, Response<UsersResponse> response) {
                 if (response.isSuccessful()){
                     if (!response.body().getResults().isEmpty()){
-                        editor.putString("LoginStatus" , "yes") ;
-                        editor.commit();
-                        startActivity(new Intent(MainActivity.this , MovieListActivity.class));
-                        finish();
+                        getData();
                     }else{
                         Toast.makeText(MainActivity.this, "Wrong Email/Password", Toast.LENGTH_SHORT).show();
                     }
@@ -93,5 +95,32 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, ""+t, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void getData(){
+
+        apiService.getUsersByEmail(etEmail.getText().toString()).enqueue(new Callback<UsersResponse>() {
+            @Override
+            public void onResponse(Call<UsersResponse> call, Response<UsersResponse> response) {
+                if (response.isSuccessful()){
+
+                    userList = response.body().getResults();
+                    editor.putString("Name" , userList.get(0).getName()) ;
+                    editor.putString("Email" , userList.get(0).getEmail()) ;
+                    editor.putString("Password" , userList.get(0).getPassword()) ;
+                    editor.putString("Type" , userList.get(0).getType()) ;
+                    editor.putString("LoginStatus" , "yes") ;
+                    editor.commit();
+                    startActivity(new Intent(MainActivity.this , MovieListActivity.class));
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UsersResponse> call, Throwable t) {
+                Toast.makeText(MainActivity.this, ""+t, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 }

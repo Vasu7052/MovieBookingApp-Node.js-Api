@@ -29,7 +29,10 @@ public interface ApiInterface {
     Call<UsersResponse> getAllUsersData() ;
 
     @GET("api/users/byId/{id}")
-    Call<UsersResponse> getAllUsersById(@Path("id") String id) ;
+    Call<UsersResponse> getUsersById(@Path("id") String id) ;
+
+    @GET("api/users/byEmail/{email}")
+    Call<UsersResponse> getUsersByEmail(@Path("email") String email) ;
 
     @GET("api/users/byEmailPass/{email}&{password}")
     Call<UsersResponse> getAllUsersByEmailPass(@Path("email") String email , @Path("password") String password) ;
