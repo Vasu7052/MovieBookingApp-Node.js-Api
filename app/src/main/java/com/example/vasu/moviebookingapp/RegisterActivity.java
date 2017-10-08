@@ -135,6 +135,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onResponse(Call<UsersResponse> call, Response<UsersResponse> response) {
                 if (response.isSuccessful()){
                     Toast.makeText(RegisterActivity.this, "User Registered", Toast.LENGTH_SHORT).show();
+                    finish();
                 }else {
                     Toast.makeText(RegisterActivity.this, ""+response, Toast.LENGTH_SHORT).show();
                 }
