@@ -1,6 +1,7 @@
 package com.example.vasu.moviebookingapp.helper;
 
 import com.example.vasu.moviebookingapp.Model.MoviesResponse;
+import com.example.vasu.moviebookingapp.Model.Users;
 import com.example.vasu.moviebookingapp.Model.UsersResponse;
 import com.google.gson.JsonElement;
 
@@ -8,6 +9,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -32,13 +34,9 @@ public interface ApiInterface {
     @GET("api/users/byEmailPass/{email}&{password}")
     Call<UsersResponse> getAllUsersByEmailPass(@Path("email") String email , @Path("password") String password) ;
 
-    @FormUrlEncoded
     @POST("api/users/add/")
     Call<UsersResponse> addUsersData(
-            @Field("name") String name ,
-            @Field("email") String email ,
-            @Field("password") String password ,
-            @Field("type") String type
+            @Body Users users
     ) ;
 
     @FormUrlEncoded

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.vasu.moviebookingapp.Model.Users;
 import com.example.vasu.moviebookingapp.Model.UsersResponse;
 import com.example.vasu.moviebookingapp.helper.ApiClient;
 import com.example.vasu.moviebookingapp.helper.ApiInterface;
@@ -55,7 +56,13 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void registerUser(){
 
-        apiService.addUsersData(etName.getText().toString(),etEmail.getText().toString(),etPassword.getText().toString(),"Normal").enqueue(new Callback<UsersResponse>() {
+        Users temp = new Users();
+        temp.setName(etName.getText().toString());
+        temp.setEmail(etEmail.getText().toString());
+        temp.setPassword(etPassword.getText().toString());
+        temp.setType("Normal");
+
+        apiService.addUsersData(temp).enqueue(new Callback<UsersResponse>() {
             @Override
             public void onResponse(Call<UsersResponse> call, Response<UsersResponse> response) {
                 if (response.isSuccessful()){

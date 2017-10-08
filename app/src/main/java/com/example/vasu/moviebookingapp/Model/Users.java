@@ -26,6 +26,10 @@ public class Users {
     @SerializedName("create_date")
     private String create_date ;
 
+    public Users(){
+
+    }
+
     public Users(String _id, String name,String email, String password,String type, String create_date){
         this._id = _id;
         this.name = name ;
