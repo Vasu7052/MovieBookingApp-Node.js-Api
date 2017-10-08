@@ -28,6 +28,11 @@ public interface ApiInterface {
     @GET("api/users/all/")
     Call<UsersResponse> getAllUsersData() ;
 
+    @POST("api/users/add/")
+    Call<UsersResponse> addUsersData(
+            @Body Users users
+    ) ;
+
     @GET("api/users/byId/{id}")
     Call<UsersResponse> getUsersById(@Path("id") String id) ;
 
@@ -36,11 +41,6 @@ public interface ApiInterface {
 
     @GET("api/users/byEmailPass/{email}&{password}")
     Call<UsersResponse> getAllUsersByEmailPass(@Path("email") String email , @Path("password") String password) ;
-
-    @POST("api/users/add/")
-    Call<UsersResponse> addUsersData(
-            @Body Users users
-    ) ;
 
     @FormUrlEncoded
     @PUT("api/genres/update/{id}")

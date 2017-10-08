@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                     editor.putString("Name" , userList.get(0).getName()) ;
                     editor.putString("Email" , userList.get(0).getEmail()) ;
                     editor.putString("Password" , userList.get(0).getPassword()) ;
+                    editor.putString("ProfilePhoto" , userList.get(0).getProfilePhoto()) ;
                     editor.putString("Type" , userList.get(0).getType()) ;
                     editor.putString("LoginStatus" , "yes") ;
                     editor.commit();
