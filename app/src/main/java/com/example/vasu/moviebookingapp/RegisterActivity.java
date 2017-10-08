@@ -156,7 +156,7 @@ public class RegisterActivity extends AppCompatActivity {
             super.onPreExecute();
             pDialog = new SweetAlertDialog(RegisterActivity.this, SweetAlertDialog.PROGRESS_TYPE);
             pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-            pDialog.setTitleText("Sharing Your Post");
+            pDialog.setTitleText("Creating your Account");
             pDialog.setCancelable(false);
             pDialog.show();
         }

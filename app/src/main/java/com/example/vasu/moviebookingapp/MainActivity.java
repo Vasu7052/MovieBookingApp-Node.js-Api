@@ -54,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
         submit = (Button) findViewById(R.id.login_form_submit_btn);
 
-        etEmail.setText("vasu@gmail.com");
-        etPassword.setText("vasu123");
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
