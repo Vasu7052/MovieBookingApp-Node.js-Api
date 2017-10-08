@@ -19,7 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MovieListActivity"></activity>
+        <activity android:name=".MovieListActivity" />
+        <activity android:name=".ProfileActivity"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -55,17 +55,6 @@ public interface ApiInterface {
     Call<MoviesResponse> getAllMoviesData() ;
 
     @FormUrlEncoded
-    @POST("api/books/add/")
-    Call<MoviesResponse> addMoviesData(
-            @Field("title") String title,
-            @Field("genre") String genre,
-            @Field("decription") String decription,
-            @Field("author") String author,
-            @Field("publisher") String publisher,
-            @Field("pages") String pages
-    ) ;
-
-    @FormUrlEncoded
     @PUT("api/books/update/{id}")
     Call<MoviesResponse> updateMoviesData(
             @Path("id") String _id,
