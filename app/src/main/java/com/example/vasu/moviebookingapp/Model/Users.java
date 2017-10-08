@@ -20,14 +20,18 @@ public class Users {
     @SerializedName("password")
     private String password ;
 
+    @SerializedName("type")
+    private String type ;
+
     @SerializedName("create_date")
     private String create_date ;
 
-    public Users(String _id, String name,String email, String password, String create_date){
+    public Users(String _id, String name,String email, String password,String type, String create_date){
         this._id = _id;
         this.name = name ;
         this.email = email ;
         this.password = password ;
+        this.type = type ;
         this.create_date = create_date ;
     }
 
@@ -61,6 +65,14 @@ public class Users {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getCreate_date() {
