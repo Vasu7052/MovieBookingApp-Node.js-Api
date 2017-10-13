@@ -9,4 +9,4 @@ This is a Movie Booking App in which the backend is created through Node.js . An
 <img src="/Screenshots/Screenshot_1507461000.png" width="400" height="720"></img>
 <img src="/Screenshots/Screenshot_1507460989.png" width="400" height="720"></img>
 
-
+#### For database purpose MongoDb is used in Node.js .
